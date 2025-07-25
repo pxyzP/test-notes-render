@@ -1,13 +1,13 @@
 
 // main server file
 const express = require('express')
-const cors = require('cors')
+//const cors = require('cors')
 
 const app = express()
 
 app.use(express.static('dist'))
 
-app.use(cors())              // <--- CORS must be before any routes
+//app.use(cors())              // <--- CORS must be before any routes
 app.use(express.json())      // <--- json-parser  -> to define the body of the request
 // takes json data of the request, tranform to JS obj, attach to the body part
 
