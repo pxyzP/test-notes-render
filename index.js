@@ -1,6 +1,10 @@
 
 // main server file
+require('dotenv').config()
+
 const express = require('express')
+const Note = require('./models/note') // import the module 
+
 //const cors = require('cors')
 
 const app = express()
@@ -34,6 +38,13 @@ let notes = [
   }
 ]
 
+
+
+
+
+
+
+
 /*
 without express hv to specify type...
 
@@ -61,7 +72,10 @@ browser that visits http://localhost:3001/.
 
 
 app.get('/api/notes', (request, response) => {
-  response.json(notes)
+  Note.find({}).then(notes => { //now that we connected to mongo
+    response.json(notes)
+  })
+  //response.json(notes)
 })
 
 app.get('/api/notes/:id', (request, response) => {
